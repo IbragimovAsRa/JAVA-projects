@@ -1,33 +1,51 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-import java.sql.*;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class DbServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("ddddddd");
-        Connection connection = null;
+    Connection connection = null;
+    @Override
+    public void init() throws ServletException {
         try {
-            // below two lines are used for connectivity.
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/productdb?serverTimezone=UTC",
                     "aslan_user", "password");
+            System.out.println("___________________ Successful connection to the database ____________________\n");
         }
         catch (Exception exception) {
-            System.out.println("erroe");
+            System.out.println("ERROR1");
             System.out.println(exception);
 
         }
 
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.close();
+            System.out.println("succses");
+            if(connection == null) {
+                System.out.println("ERROR3");
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR2");
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    public void destroy() {
+        try {
+            connection.close();
+            System.out.println("CLOSE SUCCESSES");
+        } catch (SQLException e) {
+            System.out.println("ERROR2");
+            throw new RuntimeException(e);
+        }
+    }
+
 }

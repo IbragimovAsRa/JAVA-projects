@@ -8,30 +8,30 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class MainServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("input servlet main");
+        String username = request.getParameter("username");
+        String mail = request.getParameter("mail");
+        String password = request.getParameter("password");
 
-        response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
+        System.out.println(username);
+        System.out.println("\n");
+        System.out.println(mail);
+        System.out.println("\n");
+        System.out.println(password);
+        System.out.println("\n");
+    }
 
-        String name = request.getParameter("username");
-        String age = request.getParameter("userage");
-        String gender = request.getParameter("gender");
-        String country = request.getParameter("country");
-        String[] courses = request.getParameterValues("courses");
 
-        try {
-            writer.println("<p>Name: " + name + "</p>");
-            writer.println("<p>Age: " + age + "</p>");
-            writer.println("<p>Gender: " + gender + "</p>");
-            writer.println("<p>Country: " + country + "</p>");
-            writer.println("<h4>Courses</h4>");
-            for(String course: courses)
-                writer.println("<li>" + course + "</li>");
-        } finally {
-            writer.close();
-        }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        System.out.println("input servlet main");
+
     }
 }
 
