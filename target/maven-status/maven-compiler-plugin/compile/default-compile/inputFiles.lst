@@ -1,2 +1,6 @@
 /home/aslan/Desktop/Tomcat_servleets/src/main/java/MainServlet.java
+/home/aslan/Desktop/Tomcat_servleets/src/main/java/models/Book.java
 /home/aslan/Desktop/Tomcat_servleets/src/main/java/DbServlet.java
+/home/aslan/Desktop/Tomcat_servleets/src/main/java/models/User.java
+/home/aslan/Desktop/Tomcat_servleets/src/main/java/View_book.java
+/home/aslan/Desktop/Tomcat_servleets/src/main/java/DBWorker.java

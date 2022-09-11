@@ -24,7 +24,14 @@
         <url-pattern>/dataBase</url-pattern>
     </servlet-mapping>
 
-
+    <servlet>
+        <servlet-name>View_book</servlet-name>
+        <servlet-class>View_book</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>View_book</servlet-name>
+        <url-pattern>/View_book</url-pattern>
+    </servlet-mapping>
 
 </web-app>
 
