@@ -33,6 +33,15 @@
         <url-pattern>/View_book</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Add_book</servlet-name>
+        <servlet-class>Add_book</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Add_book</servlet-name>
+        <url-pattern>/Add_book</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
 

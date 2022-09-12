@@ -35,7 +35,7 @@ public class View_book extends HttpServlet {
             ArrayList<Book> books = new ArrayList<Book>();
 
             while(resultSet.next()) {
-                books.add(new Book(resultSet.getString(1), resultSet.getString(2)));
+                books.add(new Book(resultSet.getString(2), resultSet.getString(3)));
             }
             request.setAttribute("books_list", books);
             getServletContext().getRequestDispatcher("/view_book.jsp").forward(request, response);
